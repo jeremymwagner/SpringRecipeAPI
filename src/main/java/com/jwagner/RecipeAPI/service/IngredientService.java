@@ -30,4 +30,12 @@ public class IngredientService {
         ingredientRepo.delete(i);
         return i;
     }
+
+    public Long clearIngredientsFromRecipe(Long recipeId){
+        return ingredientRepo.clearAllIngredientsForRecipe(recipeId);
+    }
+
+    public List<Ingredient> getAllIngredients(){
+        return ingredientRepo.findAll();
+    }
 }

@@ -10,4 +10,7 @@ public interface IngredientRepo extends JpaRepository<Ingredient, Long> {
 
     @Query("SELECT i FROM Ingredient i WHERE i.recipe_id = ?1")
     List<Ingredient> getAllIngredientsForRecipe(Long recipeId);
+
+    @Query("DELETE FROM Ingredient i WHERE i.recipe_id = ?1")
+    Long clearAllIngredientsForRecipe(Long recipeId);
 }

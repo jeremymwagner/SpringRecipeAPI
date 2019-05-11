@@ -21,8 +21,18 @@ public class RecipeService {
         return recipeRepo.findAllUserRecipes(userId);
     }
 
-    public Recipe saveRecipe(Recipe recipe){
+    public Recipe saveOrUpdateRecipe(Recipe recipe){
         return recipeRepo.save(recipe);
+    }
+
+    public Recipe deleteRecipe(Long id){
+        Recipe r = getRecipeById(id);
+        recipeRepo.delete(r);
+        return r;
+    }
+
+    public List<Recipe> getAllRecipes(){
+        return recipeRepo.findAll();
     }
 }
 

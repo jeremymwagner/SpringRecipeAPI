@@ -25,8 +25,23 @@ public class RecipeController {
         return recipeService.getUserRecipes(userId);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Recipe createRecipe(@RequestBody Recipe recipe){
-        return recipeService.saveRecipe(recipe);
+        return recipeService.saveOrUpdateRecipe(recipe);
+    }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Recipe updateRecipe(@RequestBody Recipe recipe){
+        return recipeService.saveOrUpdateRecipe(recipe);
+    }
+
+    @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Recipe deleteRecipe(@PathVariable Long id){
+        return recipeService.deleteRecipe(id);
+    }
+
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Recipe> getAllRecipes(){
+        return recipeService.getAllRecipes();
     }
 }

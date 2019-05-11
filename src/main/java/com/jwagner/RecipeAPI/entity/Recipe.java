@@ -8,7 +8,8 @@ import java.util.List;
 @Table(name="Recipe")
 public class Recipe {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "recipe_generator")
+    @SequenceGenerator(name="recipe_generator",sequenceName = "recipe_seq")
     @Column(name="recipe_id")
     private Long id;
 
@@ -67,4 +68,11 @@ public class Recipe {
         this.id = id;
     }
 
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
+    }
 }

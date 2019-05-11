@@ -14,8 +14,15 @@ public class RecipeService {
     RecipeRepo recipeRepo;
 
     public Recipe getRecipeById(Long id){
-        List<Recipe> list = recipeRepo.findAll();
-        return list.get(0);
+        return recipeRepo.findById(id).get();
+    }
+
+    public List<Recipe> getUserRecipes(Long userId){
+        return recipeRepo.findAllUserRecipes(userId);
+    }
+
+    public Recipe saveRecipe(Recipe recipe){
+        return recipeRepo.save(recipe);
     }
 }
 

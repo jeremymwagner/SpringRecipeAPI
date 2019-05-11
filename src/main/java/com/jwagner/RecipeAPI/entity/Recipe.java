@@ -24,10 +24,6 @@ public class Recipe {
     @Column(name="total_time")
     private String time;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="recipe_id")
-    private List<Ingredient> ingredients;
-
     @Column(name="user_id")
     private Long user_id;
 
@@ -71,11 +67,4 @@ public class Recipe {
         this.id = id;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
 }

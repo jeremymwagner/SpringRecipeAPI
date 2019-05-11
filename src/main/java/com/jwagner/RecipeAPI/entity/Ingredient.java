@@ -19,8 +19,8 @@ public class Ingredient {
     @Column(name="measurement")
     private String measurement;
 
-    @ManyToOne
-    private Recipe recipe;
+    @Column(name="recipe_id")
+    private Long recipe_id;
 
     public Ingredient() {
     }
@@ -57,11 +57,11 @@ public class Ingredient {
         this.measurement = measurement;
     }
 
-    public Recipe getRecipe() {
-        return recipe;
+    public Long getRecipe_id() {
+        return recipe_id;
     }
 
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    public void setRecipe_id(Long recipe_id) {
+        this.recipe_id = recipe_id;
     }
 }

@@ -5,6 +5,8 @@ import com.jwagner.RecipeAPI.repo.RecipeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RecipeService {
 
@@ -12,7 +14,8 @@ public class RecipeService {
     RecipeRepo recipeRepo;
 
     public Recipe getRecipeById(Long id){
-        return recipeRepo.findRecipeById(id);
+        List<Recipe> list = recipeRepo.findAll();
+        return list.get(0);
     }
 }
 
